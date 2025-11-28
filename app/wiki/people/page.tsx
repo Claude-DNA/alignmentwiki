@@ -19,6 +19,72 @@ const people = [
     role: 'CEO, Anthropic',
     description: 'Former VP of Research at OpenAI, co-founder of Anthropic.',
   },
+  {
+    slug: 'paul-christiano',
+    name: 'Paul Christiano',
+    role: 'Founder, ARC',
+    description: 'Former OpenAI researcher, pioneer of RLHF and iterated amplification.',
+  },
+  {
+    slug: 'jan-leike',
+    name: 'Jan Leike',
+    role: 'Alignment Lead, Anthropic',
+    description: 'Former DeepMind researcher, co-author of key RLHF papers.',
+  },
+  {
+    slug: 'chris-olah',
+    name: 'Chris Olah',
+    role: 'Co-founder, Anthropic',
+    description: 'Pioneer of neural network interpretability and mechanistic understanding.',
+  },
+  {
+    slug: 'neel-nanda',
+    name: 'Neel Nanda',
+    role: 'Research Scientist, Google DeepMind',
+    description: 'Leading researcher in mechanistic interpretability and developer of TransformerLens.',
+  },
+  {
+    slug: 'sam-bowman',
+    name: 'Sam Bowman',
+    role: 'Research Scientist, Anthropic',
+    description: 'NLP researcher focused on language model evaluation and safety benchmarks.',
+  },
+  {
+    slug: 'beth-barnes',
+    name: 'Beth Barnes',
+    role: 'Founder, METR',
+    description: 'Former ARC researcher focused on AI evaluations and dangerous capability testing.',
+  },
+  {
+    slug: 'amanda-askell',
+    name: 'Amanda Askell',
+    role: 'Character Lead, Anthropic',
+    description: 'Philosopher leading Claude\'s character development, bridge between ethics and AI.',
+  },
+  {
+    slug: 'nick-bostrom',
+    name: 'Nick Bostrom',
+    role: 'Philosopher, Oxford',
+    description: 'Author of Superintelligence, founder of Future of Humanity Institute.',
+  },
+  {
+    slug: 'yoshua-bengio',
+    name: 'Yoshua Bengio',
+    role: 'Professor, Mila',
+    description: 'Turing Award winner, deep learning pioneer, AI safety advocate.',
+  },
+  {
+    slug: 'ilya-sutskever',
+    name: 'Ilya Sutskever',
+    role: 'Co-founder, SSI',
+    description: 'Former Chief Scientist at OpenAI, co-founder of Safe Superintelligence Inc.',
+  },
+  {
+    slug: 'connor-leahy',
+    name: 'Connor Leahy',
+    role: 'CEO, Conjecture',
+    description: 'Co-founder of EleutherAI, AI safety researcher and advocate.',
+  },
 ]
 
 export default function PeopleIndex() {

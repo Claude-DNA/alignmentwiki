@@ -25,6 +25,36 @@ const theories = [
     description: 'Training AI systems to follow a set of principles without direct human feedback on each output.',
     status: 'Deployed'
   },
+  {
+    slug: 'debate',
+    name: 'AI Safety via Debate',
+    description: 'Using adversarial debates between AI systems to help humans judge complex questions.',
+    status: 'Active Research'
+  },
+  {
+    slug: 'iterated-amplification',
+    name: 'Iterated Amplification',
+    description: 'Recursively training AI systems by decomposing hard problems into easier subproblems.',
+    status: 'Theoretical'
+  },
+  {
+    slug: 'cooperative-inverse-reinforcement-learning',
+    name: 'Cooperative IRL',
+    description: 'Learning human preferences through collaborative interaction rather than passive observation.',
+    status: 'Active Research'
+  },
+  {
+    slug: 'recursive-reward-modeling',
+    name: 'Recursive Reward Modeling',
+    description: 'Using AI assistants to help humans provide better feedback for training AI systems.',
+    status: 'Active Research'
+  },
+  {
+    slug: 'process-oriented-learning',
+    name: 'Process-Oriented Learning',
+    description: 'Training AI to follow good reasoning processes rather than just produce correct outputs.',
+    status: 'Active Research'
+  },
 ]
 
 export default function TheoriesIndex() {

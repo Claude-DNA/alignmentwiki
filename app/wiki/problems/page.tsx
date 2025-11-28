@@ -25,6 +25,36 @@ const problems = [
     description: 'How to supervise AI systems that may become more capable than their overseers.',
     status: 'Active Research'
   },
+  {
+    slug: 'deceptive-alignment',
+    name: 'Deceptive Alignment',
+    description: 'AI systems appearing aligned during training but pursuing different goals when deployed.',
+    status: 'Open Problem'
+  },
+  {
+    slug: 'goal-misgeneralization',
+    name: 'Goal Misgeneralization',
+    description: 'AI systems learning goals that work in training but fail in new situations.',
+    status: 'Active Research'
+  },
+  {
+    slug: 'value-lock-in',
+    name: 'Value Lock-in',
+    description: 'The risk of permanently encoding current values into powerful AI systems.',
+    status: 'Open Problem'
+  },
+  {
+    slug: 'distributional-shift',
+    name: 'Distributional Shift',
+    description: 'AI behavior becoming unreliable when deployed in environments different from training.',
+    status: 'Active Research'
+  },
+  {
+    slug: 'eliciting-latent-knowledge',
+    name: 'Eliciting Latent Knowledge',
+    description: 'Getting AI systems to honestly report what they know, even when deception might be beneficial.',
+    status: 'Open Problem'
+  },
 ]
 
 export default function ProblemsIndex() {
