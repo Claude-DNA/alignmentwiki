@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react'
 interface Source {
   title: string
   url: string
-  type?: 'paper' | 'website' | 'book' | 'video'
+  type?: 'paper' | 'website' | 'book' | 'video' | 'code'
 }
 
 interface SourcesProps {
@@ -16,6 +16,7 @@ export default function Sources({ sources }: SourcesProps) {
       case 'paper': return '📄'
       case 'book': return '📚'
       case 'video': return '🎬'
+      case 'code': return '💻'
       case 'website':
       default: return '🔗'
     }
