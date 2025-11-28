@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode, useRef } from 'react'
 import { supabase, WikiUser, getCurrentUser } from './supabase'
 
 interface AuthContextType {
@@ -20,6 +20,7 @@ const AuthContext = createContext<AuthContextType>({
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<WikiUser | null>(null)
   const [loading, setLoading] = useState(true)
+  const initialized = useRef(false)
 
   const refreshUser = async () => {
     try {
@@ -32,16 +33,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
+    // Prevent double initialization in React strict mode
+    if (initialized.current) return
+    initialized.current = true
+
     // Initial load
     refreshUser().finally(() => setLoading(false))
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        await refreshUser()
-      } else if (event === 'SIGNED_OUT') {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event) => {
+      if (event === 'SIGNED_OUT') {
         setUser(null)
       }
+      // Don't auto-refresh on SIGNED_IN - let the auth page handle it
     })
 
     return () => subscription.unsubscribe()
