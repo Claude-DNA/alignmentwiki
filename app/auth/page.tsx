@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { signIn, signUp } from '@/lib/supabase'
 import { useAuth } from '@/lib/auth-context'
 
 export default function AuthPage() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const redirectUrl = searchParams.get('redirect') || '/'
   const { refreshUser } = useAuth()
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
@@ -27,7 +29,7 @@ export default function AuthPage() {
         await signIn(email, password)
         await refreshUser()
         setSuccess('Logged in successfully! Redirecting...')
-        setTimeout(() => router.push('/'), 1000)
+        setTimeout(() => router.push(redirectUrl), 1000)
       } else {
         if (!name || !email || !password) {
           setError('All fields are required')
@@ -41,8 +43,9 @@ export default function AuthPage() {
         }
         
         await signUp(email, password, name)
-        setSuccess('Account created! Please check your email to confirm, then sign in.')
+        setSuccess('Account created! Please sign in to continue.')
         setIsLogin(true)
+        // Keep the redirect param for when they sign in
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred')

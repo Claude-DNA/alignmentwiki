@@ -60,6 +60,9 @@ export default function SuggestEditPage() {
   }
 
   if (!user) {
+    // Build the return URL with current parameters
+    const currentUrl = `/suggest-edit?article=${encodeURIComponent(article)}&path=${encodeURIComponent(path)}`
+    
     return (
       <div className="wiki-article max-w-2xl mx-auto text-center">
         <h1>Sign in to Suggest Edits</h1>
@@ -67,7 +70,7 @@ export default function SuggestEditPage() {
           You need an account to suggest edits to wiki articles.
         </p>
         <Link 
-          href="/auth"
+          href={`/auth?redirect=${encodeURIComponent(currentUrl)}`}
           className="inline-block bg-wiki-accent text-white py-2 px-6 rounded-lg hover:bg-wiki-accent-hover transition-colors no-underline"
         >
           Sign In or Create Account
