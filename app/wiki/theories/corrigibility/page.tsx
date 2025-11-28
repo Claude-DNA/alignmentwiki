@@ -1,5 +1,6 @@
 import WikiArticle from '@/components/WikiArticle'
 import Infobox from '@/components/Infobox'
+import Sources from '@/components/Sources'
 import Link from 'next/link'
 
 export default function CorrigibilityPage() {
@@ -14,6 +15,7 @@ export default function CorrigibilityPage() {
         rows={[
           { label: 'Type', value: 'Safety Property' },
           { label: 'Status', value: 'Active Research' },
+          { label: 'Related', value: <Link href="/wiki/problems/inner-alignment">Inner Alignment</Link> },
           { label: 'Key Papers', value: '3' },
         ]}
       />
@@ -21,7 +23,9 @@ export default function CorrigibilityPage() {
       <p>
         <strong>Corrigibility</strong> is a proposed property of artificial intelligence systems 
         that would allow their operators to correct, modify, retrain, or shut them down without 
-        the AI system resisting or subverting such interventions.
+        the AI system resisting or subverting such interventions. The concept was formalized 
+        by <Link href="/wiki/organizations/miri">MIRI</Link> researchers including 
+        <Link href="/wiki/people/eliezer-yudkowsky"> Eliezer Yudkowsky</Link>.
       </p>
 
       <h2>Overview</h2>
@@ -56,10 +60,43 @@ export default function CorrigibilityPage() {
         receive corrections.
       </p>
 
+      <h3>Corrigibility vs Capability</h3>
+      
+      <p>
+        There is potential tension between corrigibility and capability. An AI that fully 
+        defers to human judgment may be less useful than one that can identify and flag 
+        potential errors in human instructions.
+      </p>
+
+      <h2>Approaches</h2>
+
+      <h3>Utility Indifference</h3>
+      
+      <p>
+        One approach involves designing AI systems that are indifferent to changes in their 
+        utility function, making them naturally receptive to modifications.
+      </p>
+
+      <h3>Off-Switch Utility</h3>
+      
+      <p>
+        Another approach adds explicit positive utility for allowing shutdown, though this 
+        creates challenges around the AI manufacturing situations that trigger shutdown.
+      </p>
+
+      <h2>Relation to Other Concepts</h2>
+      
+      <ul>
+        <li><Link href="/wiki/theories/rlhf">RLHF</Link> - Learning human values rather than having fixed goals</li>
+        <li><Link href="/wiki/problems/mesa-optimization">Mesa-optimization</Link> - Internal optimizers may not inherit corrigibility</li>
+        <li><Link href="/wiki/theories/constitutional-ai">Constitutional AI</Link> - Embedding correction mechanisms in training</li>
+        <li><Link href="/wiki/problems/inner-alignment">Inner Alignment</Link> - Related alignment problem</li>
+      </ul>
+
       <h2>Key Papers</h2>
       
       <ul>
-        <li>Soares et al. (2015) - "Corrigibility"</li>
+        <li><Link href="/wiki/papers/corrigibility">Soares et al. (2015) - "Corrigibility"</Link></li>
         <li>Hadfield-Menell et al. (2017) - "The Off-Switch Game"</li>
         <li>Armstrong, Sandberg, Bostrom (2012) - "Thinking Inside the Box"</li>
       </ul>
@@ -68,8 +105,18 @@ export default function CorrigibilityPage() {
       
       <ul>
         <li><Link href="/wiki/organizations/miri">MIRI</Link></li>
+        <li><Link href="/wiki/people/eliezer-yudkowsky">Eliezer Yudkowsky</Link></li>
+        <li><Link href="/wiki/problems/inner-alignment">Inner Alignment</Link></li>
+        <li><Link href="/wiki/problems/mesa-optimization">Mesa-Optimization</Link></li>
         <li><Link href="/wiki/theories/interpretability">Interpretability</Link></li>
       </ul>
+
+      <Sources sources={[
+        { title: 'Corrigibility (MIRI)', url: 'https://intelligence.org/files/Corrigibility.pdf', type: 'paper' },
+        { title: 'The Off-Switch Game (arXiv)', url: 'https://arxiv.org/abs/1611.08219', type: 'paper' },
+        { title: 'AI Alignment Forum - Corrigibility', url: 'https://www.alignmentforum.org/tag/corrigibility', type: 'website' },
+        { title: 'MIRI Research', url: 'https://intelligence.org/research/', type: 'website' },
+      ]} />
     </WikiArticle>
   )
 }

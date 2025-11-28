@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { Edit } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 interface WikiArticleProps {
   title: string
@@ -14,6 +17,8 @@ export default function WikiArticle({
   categories = [],
   children 
 }: WikiArticleProps) {
+  const pathname = usePathname()
+
   return (
     <article className="wiki-article">
       <div className="flex items-start justify-between mb-6">
@@ -27,10 +32,13 @@ export default function WikiArticle({
             </div>
           )}
         </div>
-        <button className="wiki-edit-button flex items-center space-x-1">
+        <Link 
+          href={`/suggest-edit?article=${encodeURIComponent(title)}&path=${encodeURIComponent(pathname)}`}
+          className="wiki-edit-button flex items-center space-x-1 no-underline"
+        >
           <Edit className="w-4 h-4" />
-          <span>Propose Edit</span>
-        </button>
+          <span>Suggest Edit</span>
+        </Link>
       </div>
 
       <div className="prose prose-wiki max-w-none">

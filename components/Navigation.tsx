@@ -1,11 +1,31 @@
 'use client'
 
 import Link from 'next/link'
-import { Search } from 'lucide-react'
+import { Search, User, LogOut, Shield, Settings } from 'lucide-react'
 import { useState } from 'react'
+import { useAuth } from '@/lib/auth-context'
 
 export default function Navigation() {
   const [searchQuery, setSearchQuery] = useState('')
+  const [showUserMenu, setShowUserMenu] = useState(false)
+  const { user, loading, signOut } = useAuth()
+
+  const handleLogout = async () => {
+    await signOut()
+    setShowUserMenu(false)
+    window.location.href = '/'
+  }
+
+  const getRoleBadge = (role: string) => {
+    switch (role) {
+      case 'admin':
+        return <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded ml-2">Admin</span>
+      case 'moderator':
+        return <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded ml-2">Mod</span>
+      default:
+        return null
+    }
+  }
 
   return (
     <nav className="bg-wiki-surface border-b border-wiki-border sticky top-0 z-50">
@@ -28,9 +48,78 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          <Link href="/about" className="text-wiki-text-muted hover:text-wiki-text">
+          <Link href="/about" className="text-wiki-text-muted hover:text-wiki-text no-underline">
             About
           </Link>
+          
+          {loading ? (
+            <span className="text-wiki-text-muted">Loading...</span>
+          ) : user ? (
+            <div className="relative">
+              <button 
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="flex items-center space-x-2 text-wiki-text-muted hover:text-wiki-text"
+              >
+                <User className="w-4 h-4" />
+                <span>{user.name}</span>
+                {getRoleBadge(user.role)}
+              </button>
+              
+              {showUserMenu && (
+                <div className="absolute right-0 mt-2 w-56 bg-wiki-surface border border-wiki-border rounded-lg shadow-lg py-1">
+                  <div className="px-4 py-2 border-b border-wiki-border">
+                    <p className="text-sm font-medium">{user.name}</p>
+                    <p className="text-xs text-wiki-text-muted">{user.email}</p>
+                  </div>
+                  
+                  <Link 
+                    href="/my-edits"
+                    className="block px-4 py-2 text-sm text-wiki-text hover:bg-wiki-sidebar no-underline"
+                    onClick={() => setShowUserMenu(false)}
+                  >
+                    My Edit Suggestions
+                  </Link>
+                  
+                  {(user.role === 'admin' || user.role === 'moderator') && (
+                    <Link 
+                      href="/admin"
+                      className="flex items-center space-x-2 px-4 py-2 text-sm text-wiki-text hover:bg-wiki-sidebar no-underline"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Shield className="w-4 h-4" />
+                      <span>Review Edits</span>
+                    </Link>
+                  )}
+                  
+                  {user.role === 'admin' && (
+                    <Link 
+                      href="/admin/users"
+                      className="flex items-center space-x-2 px-4 py-2 text-sm text-wiki-text hover:bg-wiki-sidebar no-underline"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Settings className="w-4 h-4" />
+                      <span>Manage Users</span>
+                    </Link>
+                  )}
+                  
+                  <button 
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 text-sm text-wiki-text hover:bg-wiki-sidebar flex items-center space-x-2 border-t border-wiki-border"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Sign Out</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link 
+              href="/auth" 
+              className="bg-wiki-accent text-white px-4 py-1.5 rounded-lg hover:bg-wiki-accent-hover no-underline"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </nav>
