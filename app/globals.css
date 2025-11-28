@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+  
+  h1 {
+    @apply text-3xl font-semibold text-wiki-text mb-4;
+  }
+  
+  h2 {
+    @apply text-2xl font-semibold text-wiki-text mt-8 mb-3 pb-2 border-b border-wiki-border;
+  }
+  
+  h3 {
+    @apply text-xl font-medium text-wiki-text mt-6 mb-2;
+  }
+  
+  p {
+    @apply text-wiki-text leading-relaxed mb-4;
+  }
+  
+  a {
+    @apply text-wiki-accent hover:text-wiki-accent-hover hover:underline;
+  }
+  
+  ul, ol {
+    @apply mb-4 pl-6;
+  }
+  
+  li {
+    @apply mb-1;
+  }
+  
+  blockquote {
+    @apply border-l-4 border-wiki-border pl-4 italic text-wiki-text-muted my-4;
+  }
+  
+  code {
+    @apply bg-wiki-sidebar px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+}
+
+.wiki-article {
+  @apply bg-wiki-surface rounded-lg border border-wiki-border p-8;
+}
+
+.wiki-infobox {
+  @apply float-right w-72 ml-6 mb-4 bg-wiki-sidebar border border-wiki-border rounded-lg p-4 text-sm;
+}
+
+.wiki-infobox-title {
+  @apply font-semibold text-center pb-2 mb-2 border-b border-wiki-border;
+}
+
+.wiki-infobox-row {
+  @apply flex justify-between py-1;
+}
+
+.wiki-infobox-label {
+  @apply text-wiki-text-muted;
+}
+
+.wiki-category-tag {
+  @apply inline-block bg-wiki-sidebar text-wiki-text-muted text-xs px-2 py-1 rounded mr-2 mb-2;
+}
+
+.wiki-edit-button {
+  @apply text-sm text-wiki-text-muted hover:text-wiki-accent;
+}
