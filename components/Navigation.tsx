@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Search, User, LogOut, Shield, Settings, X } from 'lucide-react'
+import { Search, User, LogOut, Shield, Settings, X, PlusCircle } from 'lucide-react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/lib/auth-context'
@@ -17,13 +17,16 @@ const searchIndex: { title: string; path: string; keywords: string[] }[] = [
   { title: 'Eliezer Yudkowsky', path: '/wiki/people/eliezer-yudkowsky', keywords: ['eliezer', 'yudkowsky', 'miri', 'lesswrong'] },
   { title: 'Jan Leike', path: '/wiki/people/jan-leike', keywords: ['jan', 'leike', 'alignment', 'anthropic'] },
   { title: 'Stuart Russell', path: '/wiki/people/stuart-russell', keywords: ['stuart', 'russell', 'berkeley', 'human compatible'] },
+  { title: 'Dan Hendrycks', path: '/wiki/people/dan-hendrycks', keywords: ['dan', 'hendrycks', 'cais', 'mmlu', 'benchmarks'] },
   { title: 'Anthropic', path: '/wiki/organizations/anthropic', keywords: ['anthropic', 'claude', 'constitutional'] },
   { title: 'MIRI', path: '/wiki/organizations/miri', keywords: ['miri', 'machine', 'intelligence', 'research'] },
   { title: 'ARC', path: '/wiki/organizations/arc', keywords: ['arc', 'alignment', 'research', 'center'] },
+  { title: 'Center for AI Safety', path: '/wiki/organizations/cais', keywords: ['cais', 'center', 'ai', 'safety', 'hendrycks'] },
   { title: 'Inner Alignment', path: '/wiki/problems/inner-alignment', keywords: ['inner', 'alignment', 'mesa', 'optimizer'] },
   { title: 'Mesa-Optimization', path: '/wiki/problems/mesa-optimization', keywords: ['mesa', 'optimization', 'optimizer', 'deceptive'] },
   { title: 'Reward Hacking', path: '/wiki/problems/reward-hacking', keywords: ['reward', 'hacking', 'gaming', 'specification'] },
   { title: 'Scalable Oversight', path: '/wiki/problems/scalable-oversight', keywords: ['scalable', 'oversight', 'supervision', 'debate'] },
+  { title: 'Superintelligence', path: '/wiki/papers/superintelligence', keywords: ['superintelligence', 'bostrom', 'book', 'existential', 'risk'] },
 ]
 
 export default function Navigation() {
@@ -135,6 +138,14 @@ export default function Navigation() {
             About
           </Link>
           
+          <Link 
+            href="/add-article" 
+            className="flex items-center gap-1 bg-wiki-accent text-white px-3 py-1.5 rounded-lg hover:bg-wiki-accent-hover no-underline whitespace-nowrap"
+          >
+            <PlusCircle className="w-4 h-4" />
+            Add Article
+          </Link>
+          
           {loading ? (
             <span className="text-wiki-text-muted">...</span>
           ) : user ? (
@@ -217,6 +228,14 @@ export default function Navigation() {
           <div className="flex items-center space-x-3 text-sm">
             <Link href="/about" className="text-wiki-text-muted hover:text-wiki-text no-underline">
               About
+            </Link>
+            
+            <Link 
+              href="/add-article" 
+              className="flex items-center gap-1 bg-wiki-accent text-white px-2 py-1 rounded-lg hover:bg-wiki-accent-hover no-underline whitespace-nowrap text-xs"
+            >
+              <PlusCircle className="w-3 h-3" />
+              Add
             </Link>
             
             {loading ? (

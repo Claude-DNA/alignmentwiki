@@ -186,3 +186,84 @@ export async function updateUserRole(userId: string, role: UserRole) {
   if (error) throw error
   return data
 }
+
+// Articles
+export interface ArticleSubmission {
+  id?: string
+  category: string
+  title: string
+  slug: string
+  summary: string
+  content: string
+  resources: { title: string; url: string; type: string }[]
+  tags: string[]
+  user_id: string
+  user_name: string
+  user_email: string
+  status?: 'pending' | 'approved' | 'rejected'
+  created_at?: string
+}
+
+export async function createArticle(article: Omit<ArticleSubmission, 'id' | 'created_at' | 'status'>) {
+  const { data, error } = await supabase
+    .from('article_submissions')
+    .insert({
+      ...article,
+      resources: JSON.stringify(article.resources),
+      tags: article.tags,
+      status: 'pending'
+    })
+    .select()
+    .single()
+  
+  if (error) throw error
+  return data
+}
+
+export async function getArticleSubmissions(status?: string) {
+  let query = supabase
+    .from('article_submissions')
+    .select('*')
+    .order('created_at', { ascending: false })
+  
+  if (status && status !== 'all') {
+    query = query.eq('status', status)
+  }
+  
+  const { data, error } = await query
+  if (error) throw error
+  return data
+}
+
+export async function getUserArticleSubmissions(userId: string) {
+  const { data, error } = await supabase
+    .from('article_submissions')
+    .select('*')
+    .eq('user_id', userId)
+    .order('created_at', { ascending: false })
+  
+  if (error) throw error
+  return data
+}
+
+export async function updateArticleStatus(
+  articleId: string, 
+  status: 'approved' | 'rejected',
+  reviewerId: string,
+  notes?: string
+) {
+  const { data, error } = await supabase
+    .from('article_submissions')
+    .update({
+      status,
+      reviewer_id: reviewerId,
+      reviewer_notes: notes,
+      reviewed_at: new Date().toISOString()
+    })
+    .eq('id', articleId)
+    .select()
+    .single()
+  
+  if (error) throw error
+  return data
+}

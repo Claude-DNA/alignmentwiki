@@ -14,37 +14,31 @@ export default function Home() {
           title="Theories & Approaches"
           description="Technical approaches to ensuring AI systems remain beneficial"
           href="/wiki/theories"
-          count={12}
+          count={9}
         />
         <CategoryCard 
           title="People"
           description="Researchers and practitioners in the alignment field"
           href="/wiki/people"
-          count={24}
+          count={15}
         />
         <CategoryCard 
           title="Organizations"
           description="Research labs, nonprofits, and companies working on alignment"
           href="/wiki/organizations"
-          count={8}
+          count={12}
         />
         <CategoryCard 
           title="Key Papers"
           description="Foundational and influential research papers"
           href="/wiki/papers"
-          count={15}
+          count={9}
         />
         <CategoryCard 
           title="Open Problems"
           description="Unsolved challenges in alignment research"
           href="/wiki/problems"
-          count={10}
-        />
-        <CategoryCard 
-          title="Timeline"
-          description="History of the AI alignment field"
-          href="/wiki/timeline"
-          count={1}
+          count={9}
         />
       </div>
 
@@ -57,8 +51,8 @@ export default function Home() {
       </p>
       
       <p>
-        This is a moderated wiki. Anyone can propose edits, which are reviewed before publication 
-        to maintain quality and accuracy.
+        This is a moderated wiki. Anyone can propose edits or add new articles, which are reviewed 
+        before publication to maintain quality and accuracy.
       </p>
     </div>
   )

@@ -2,6 +2,14 @@ import Link from 'next/link'
 
 const papers = [
   {
+    slug: 'superintelligence',
+    title: 'Superintelligence: Paths, Dangers, Strategies',
+    authors: 'Nick Bostrom',
+    year: 2014,
+    venue: 'Oxford University Press',
+    topics: ['Existential Risk', 'Foundational'],
+  },
+  {
     slug: 'risks-from-learned-optimization',
     title: 'Risks from Learned Optimization in Advanced Machine Learning Systems',
     authors: 'Hubinger et al.',

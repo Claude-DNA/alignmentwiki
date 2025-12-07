@@ -87,3 +87,51 @@ CREATE INDEX IF NOT EXISTS idx_users_role ON users(role);
 -- After the users sign up with these emails, run:
 -- UPDATE users SET role = 'admin' WHERE email = 'baldnewguy@gmail.com';
 -- UPDATE users SET role = 'moderator' WHERE email = 'tsymbal1981@yahoo.com';
+
+-- Article submissions table
+CREATE TABLE IF NOT EXISTS article_submissions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  category TEXT NOT NULL,
+  title TEXT NOT NULL,
+  slug TEXT NOT NULL,
+  summary TEXT NOT NULL,
+  content TEXT NOT NULL,
+  resources JSONB DEFAULT '[]',
+  tags TEXT[] DEFAULT '{}',
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  user_name TEXT NOT NULL,
+  user_email TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  reviewer_id UUID REFERENCES users(id),
+  reviewer_notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  reviewed_at TIMESTAMP WITH TIME ZONE
+);
+
+-- Enable RLS on article_submissions
+ALTER TABLE article_submissions ENABLE ROW LEVEL SECURITY;
+
+-- Article submissions policies
+CREATE POLICY "Anyone can read approved articles" ON article_submissions
+  FOR SELECT USING (status = 'approved');
+
+CREATE POLICY "Users can read own article submissions" ON article_submissions
+  FOR SELECT USING (user_id = auth.uid());
+
+CREATE POLICY "Moderators and admins can read all article submissions" ON article_submissions
+  FOR SELECT USING (
+    EXISTS (SELECT 1 FROM users WHERE id = auth.uid() AND role IN ('admin', 'moderator'))
+  );
+
+CREATE POLICY "Authenticated users can create article submissions" ON article_submissions
+  FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Moderators and admins can update article submissions" ON article_submissions
+  FOR UPDATE USING (
+    EXISTS (SELECT 1 FROM users WHERE id = auth.uid() AND role IN ('admin', 'moderator'))
+  );
+
+-- Index for article submissions
+CREATE INDEX IF NOT EXISTS idx_article_submissions_status ON article_submissions(status);
+CREATE INDEX IF NOT EXISTS idx_article_submissions_user_id ON article_submissions(user_id);
+CREATE INDEX IF NOT EXISTS idx_article_submissions_category ON article_submissions(category);

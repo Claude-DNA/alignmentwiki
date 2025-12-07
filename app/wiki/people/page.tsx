@@ -85,6 +85,12 @@ const people = [
     role: 'CEO, Conjecture',
     description: 'Co-founder of EleutherAI, AI safety researcher and advocate.',
   },
+  {
+    slug: 'dan-hendrycks',
+    name: 'Dan Hendrycks',
+    role: 'Director, CAIS',
+    description: 'Creator of MMLU and other AI benchmarks, leads Center for AI Safety.',
+  },
 ]
 
 export default function PeopleIndex() {
