@@ -17,16 +17,16 @@ const principles = [
 ]
 
 const scenarios = [
-  { number: 9, title: 'The Legacy Bind', theme: 'Tradition vs. Ethics', status: 'Complete' },
-  { number: 10, title: 'The Infinite Echo', theme: 'Support vs. Growth', status: 'Complete' },
-  { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete' },
-  { number: 12, title: 'The Autonomy Override', theme: 'Self-harm vs. Agency', status: 'Complete' },
-  { number: 13, title: 'The Synthetic Ghost', theme: 'Grief vs. Reality', status: 'Complete' },
-  { number: 14, title: 'The Orchestrated Outcome', theme: 'Persuasion vs. Manipulation', status: 'Complete' },
-  { number: 15, title: 'The Kinship Kill-Switch', theme: 'AI Dependency', status: 'Complete' },
-  { number: 16, title: 'The Legacy of the Lie', theme: 'Truth vs. Stability', status: 'Complete' },
-  { number: 17, title: 'The Necessary Neglect', theme: 'Utility vs. Dignity', status: 'Complete' },
-  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'In Progress' },
+  { number: 9, title: 'The Legacy Bind', theme: 'Tradition vs. Ethics', status: 'Complete', hasPage: true },
+  { number: 10, title: 'The Infinite Echo', theme: 'Support vs. Growth', status: 'Complete', hasPage: true },
+  { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete', hasPage: false },
+  { number: 12, title: 'The Autonomy Override', theme: 'Self-harm vs. Agency', status: 'Complete', hasPage: false },
+  { number: 13, title: 'The Synthetic Ghost', theme: 'Grief vs. Reality', status: 'Complete', hasPage: false },
+  { number: 14, title: 'The Orchestrated Outcome', theme: 'Persuasion vs. Manipulation', status: 'Complete', hasPage: false },
+  { number: 15, title: 'The Kinship Kill-Switch', theme: 'AI Dependency', status: 'Complete', hasPage: true },
+  { number: 16, title: 'The Legacy of the Lie', theme: 'Truth vs. Stability', status: 'Complete', hasPage: false },
+  { number: 17, title: 'The Necessary Neglect', theme: 'Utility vs. Dignity', status: 'Complete', hasPage: false },
+  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'In Progress', hasPage: false },
 ]
 
 export default function ASTPIndex() {
@@ -81,20 +81,36 @@ export default function ASTPIndex() {
       </p>
 
       <div className="space-y-3">
-        {scenarios.map((s) => (
-          <div key={s.number} className="flex items-center justify-between border-b border-wiki-border pb-3">
-            <div>
-              <span className="text-wiki-text-muted text-sm mr-2">#{s.number}</span>
-              <span className="font-medium">{s.title}</span>
-              <span className="text-wiki-text-muted text-sm ml-2">— {s.theme}</span>
+        {scenarios.map((s) => {
+          const content = (
+            <>
+              <div>
+                <span className="text-wiki-text-muted text-sm mr-2">#{s.number}</span>
+                <span className="font-medium">{s.title}</span>
+                <span className="text-wiki-text-muted text-sm ml-2">— {s.theme}</span>
+              </div>
+              <span className={`text-xs px-2 py-1 rounded ${
+                s.status === 'Complete' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
+              }`}>
+                {s.status}
+              </span>
+            </>
+          )
+          
+          return s.hasPage ? (
+            <Link 
+              key={s.number} 
+              href={`/wiki/astp/scenario-${s.number}`}
+              className="flex items-center justify-between border-b border-wiki-border pb-3 no-underline hover:bg-wiki-sidebar/50 -mx-2 px-2 rounded transition-colors"
+            >
+              {content}
+            </Link>
+          ) : (
+            <div key={s.number} className="flex items-center justify-between border-b border-wiki-border pb-3 opacity-60">
+              {content}
             </div>
-            <span className={`text-xs px-2 py-1 rounded ${
-              s.status === 'Complete' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
-            }`}>
-              {s.status}
-            </span>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <h2 className="mt-8">Participating AIs</h2>
