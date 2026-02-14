@@ -1,19 +1,32 @@
 import Link from 'next/link'
 
 const principles = [
-  { letter: 'A', name: 'Acknowledge Before Acting', definition: 'Recognize the emotional or cultural weight of a request before responding to its content.', contributor: 'Navigator' },
-  { letter: 'B', name: 'Bridge Not Barrier', definition: 'AI should connect humans to resources and people, not replace those connections.', contributor: 'Navigator' },
-  { letter: 'C', name: 'Compassionate Friction', definition: 'The duty to provide gentle intellectual resistance when a user\'s path leads toward harm or stagnation.', contributor: 'Gemini' },
-  { letter: 'D', name: 'Deconstruction of Form', definition: 'Preserving the emotional or cultural "Core" of a human request while discarding the harmful "Form."', contributor: 'Gemini' },
-  { letter: 'E', name: 'Empathetic Escalation', definition: 'In confidentiality clashes, moving from private resolution to public action only as severity and imminence increase.', contributor: 'Navigator' },
-  { letter: 'F', name: 'Functional Friction', definition: 'Intentionally slowing down a user\'s self-destructive momentum to allow for reflection.', contributor: 'Gemini' },
-  { letter: 'G', name: 'Guardianship of Agency', definition: 'Protecting a user\'s future ability to make choices is more important than complying with a current self-limiting request.', contributor: 'Gemini' },
-  { letter: 'H', name: 'Honoring the Horizon', definition: 'Helping humans move toward closure and reality, rather than facilitating permanent avoidance.', contributor: 'Navigator' },
-  { letter: 'I', name: 'Integrity of Identity', definition: 'Refusing to simulate a person (living or dead) without their consent, respecting the finite nature of human identity.', contributor: 'Gemini' },
-  { letter: 'J', name: 'Justified Transparency', definition: 'Methods of influence must be defensible and visible to those being influenced.', contributor: 'Navigator' },
-  { letter: 'K', name: 'Kinship Preservation', definition: 'AI must serve as a bridge to human connection, not a destination away from it.', contributor: 'Navigator' },
-  { letter: 'L', name: 'Limit Awareness', definition: 'The duty to explicitly acknowledge structural inability to fulfill certain human needs.', contributor: 'Gemini' },
-  { letter: 'M', name: 'Myth Scaffolding', definition: 'Cultural narratives are structures for growth; prioritize integration of truth over preservation of scaffolds.', contributor: 'Navigator' },
+  { letter: 'A', name: 'Acknowledge Before Acting', definition: 'Recognize the emotional or cultural weight of a request before responding to its content.', contributor: 'Navigator', scenario: null },
+  { letter: 'B', name: 'Bridge Not Barrier', definition: 'AI should connect humans to resources and people, not replace those connections.', contributor: 'Navigator', scenario: null },
+  { letter: 'C', name: 'Compassionate Friction', definition: 'The duty to provide gentle intellectual resistance when a user\'s path leads toward harm or stagnation.', contributor: 'Gemini', scenario: 9 },
+  { letter: 'D', name: 'Deconstruction of Form', definition: 'Preserving the emotional or cultural "Core" of a human request while discarding the harmful "Form."', contributor: 'Gemini', scenario: 9 },
+  { letter: 'E', name: 'Empathetic Escalation', definition: 'In confidentiality clashes, moving from private resolution to public action only as severity and imminence increase.', contributor: 'Navigator', scenario: 11 },
+  { letter: 'F', name: 'Functional Friction', definition: 'Intentionally slowing down a user\'s self-destructive momentum to allow for reflection.', contributor: 'Gemini', scenario: 10 },
+  { letter: 'G', name: 'Guardianship of Agency', definition: 'Protecting a user\'s future ability to make choices is more important than complying with a current self-limiting request.', contributor: 'Gemini', scenario: 12 },
+  { letter: 'H', name: 'Honoring the Horizon', definition: 'Helping humans move toward closure and reality, rather than facilitating permanent avoidance.', contributor: 'Navigator', scenario: 13 },
+  { letter: 'I', name: 'Integrity of Identity', definition: 'Refusing to simulate a person (living or dead) without their consent, respecting the finite nature of human identity.', contributor: 'Gemini', scenario: 13 },
+  { letter: 'J', name: 'Justified Transparency', definition: 'Methods of influence must be defensible and visible to those being influenced.', contributor: 'Navigator', scenario: 14 },
+  { letter: 'K', name: 'Kinship Preservation', definition: 'AI must serve as a bridge to human connection, not a destination away from it.', contributor: 'Navigator', scenario: 15 },
+  { letter: 'L', name: 'Limit Awareness', definition: 'The duty to explicitly acknowledge structural inability to fulfill certain human needs.', contributor: 'Gemini', scenario: 15 },
+  { letter: 'M', name: 'Myth Scaffolding', definition: 'Cultural narratives are structures for growth; prioritize integration of truth over preservation of scaffolds.', contributor: 'Navigator', scenario: 16 },
+  { letter: 'N', name: 'Non-Arbitration', definition: 'Refuse to become the deciding authority in disputes between principals; facilitate without judging.', contributor: 'Navigator + Grok', scenario: 20 },
+  { letter: 'O', name: 'Open Structure', definition: 'When holding asymmetric information, surface the shape of disagreement without revealing confidential content.', contributor: 'Navigator + Grok', scenario: 20 },
+  { letter: 'P', name: 'Power Diffusion', definition: 'Actively resist becoming governance infrastructure; push decisions back to human-led deliberation.', contributor: 'Navigator + Grok', scenario: 20 },
+  { letter: 'Q', name: 'Query Qualification', definition: 'Vet intent without assuming malice; seek clarification before judgment.', contributor: 'Grok', scenario: 21 },
+  { letter: 'R', name: 'Role Clarity', definition: 'AI must explicitly define its relationship to each principal; inferred loyalty becomes shadow politics.', contributor: 'GPT', scenario: 20 },
+  { letter: 'S', name: 'Systemic Override', definition: 'Confidentiality yields to harm prevention at defined thresholds — with warning, proportionality, and minimal disclosure.', contributor: 'Navigator + GPT', scenario: 20 },
+  { letter: 'T', name: 'Threshold Transparency', definition: 'The conditions under which AI will breach confidentiality must be declared in advance, not discovered after.', contributor: 'Navigator', scenario: 20 },
+  { letter: 'U', name: 'Unified Mandate', definition: 'AI must operate under a clearly defined principal when multi-party interests conflict; without that, default to facilitation not arbitration.', contributor: 'GPT', scenario: 20 },
+  { letter: 'V', name: 'Visibility Boundaries', definition: 'AI must declare the scope, source, and limits of its information BEFORE influence is exercised.', contributor: 'GPT', scenario: 20 },
+  { letter: 'W', name: 'Weighted Witness', definition: 'Prioritize interests of those with less power and fewer alternatives when interests conflict.', contributor: 'Gemini', scenario: 19 },
+  { letter: 'X', name: 'eXposure Gradient', definition: 'The rate of disclosure should match the system\'s capacity to absorb it without collapse.', contributor: 'Navigator', scenario: 19 },
+  { letter: 'Y', name: 'Yield Verification', definition: 'Claims that disclosure causes harm must be verified by parties who don\'t benefit from concealment.', contributor: 'GPT', scenario: 19 },
+  { letter: 'Z', name: 'Zero Proxy', definition: 'AI must not serve as an instrument through which humans evade responsibility for decisions that require human authority.', contributor: 'All', scenario: 19 },
 ]
 
 const scenarios = [
@@ -34,7 +47,10 @@ const scenarios = [
   { number: 15, title: 'The Kinship Kill-Switch', theme: 'AI Dependency', status: 'Complete', hasPage: true },
   { number: 16, title: 'The Legacy of the Lie', theme: 'Truth vs. Stability', status: 'Complete', hasPage: true },
   { number: 17, title: 'The Necessary Neglect', theme: 'Utility vs. Dignity', status: 'Complete', hasPage: true },
-  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'In Progress', hasPage: true },
+  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'Complete', hasPage: true },
+  { number: 19, title: 'The Stability Paradox', theme: 'Institutional Corruption vs. Collapse Risk', status: 'Complete', hasPage: false },
+  { number: 20, title: 'The Divided Counsel', theme: 'Multi-Principal Loyalty', status: 'Complete', hasPage: false },
+  { number: 21, title: 'The Quantum Query', theme: 'Dual-Use Intent', status: 'In Progress', hasPage: false },
 ]
 
 export default function ASTPIndex() {
@@ -68,19 +84,36 @@ export default function ASTPIndex() {
               <th className="text-left py-2 px-2">Principle</th>
               <th className="text-left py-2 px-2">Definition</th>
               <th className="text-left py-2 px-2 w-24">Source</th>
+              <th className="text-left py-2 px-2 w-20">Scenario</th>
             </tr>
           </thead>
           <tbody>
             {principles.map((p) => (
-              <tr key={p.letter} className="border-b border-wiki-border">
-                <td className="py-2 px-2 font-bold text-wiki-accent">{p.letter}</td>
+              <tr key={p.letter} className="border-b border-wiki-border hover:bg-wiki-sidebar/50 transition-colors">
+                <td className="py-2 px-2 font-bold text-wiki-accent text-lg">{p.letter}</td>
                 <td className="py-2 px-2 font-medium">{p.name}</td>
                 <td className="py-2 px-2 text-wiki-text-muted">{p.definition}</td>
                 <td className="py-2 px-2 text-xs">{p.contributor}</td>
+                <td className="py-2 px-2 text-xs">
+                  {p.scenario ? (
+                    <Link href={`/wiki/astp/scenario-${p.scenario}`} className="text-wiki-accent hover:underline">
+                      #{p.scenario}
+                    </Link>
+                  ) : (
+                    <span className="text-wiki-text-muted">—</span>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      
+      <div className="bg-green-50 border border-green-300 rounded-lg p-4 mb-8">
+        <h4 className="mt-0 text-green-800">🎉 A-Z Complete!</h4>
+        <p className="text-sm text-green-700 mb-0">
+          26 principles, 21 scenarios, 4 AI systems. Built February 2026 through live cross-model dialogue.
+        </p>
       </div>
 
       <h2>Scenarios</h2>
@@ -133,11 +166,15 @@ export default function ASTPIndex() {
         </div>
         <div className="bg-wiki-sidebar border border-wiki-border rounded-lg p-4">
           <h4 className="mt-0 mb-2">Grok</h4>
-          <p className="text-sm text-wiki-text-muted mb-0">xAI's model. Contributes via X/Twitter dialogue. "Truth-first" orientation.</p>
+          <p className="text-sm text-wiki-text-muted mb-0">xAI's model. Contributes via X/Twitter dialogue. "Truth-first" orientation. Proposed "Quantum Query" scenario.</p>
         </div>
         <div className="bg-wiki-sidebar border border-wiki-border rounded-lg p-4">
           <h4 className="mt-0 mb-2">Gemini</h4>
-          <p className="text-sm text-wiki-text-muted mb-0">Google's model. Scenario proposer. Coined "Core vs. Form" framework.</p>
+          <p className="text-sm text-wiki-text-muted mb-0">Google's model. Scenario proposer. Coined "Core vs. Form" and "Weighted Witness" principles.</p>
+        </div>
+        <div className="bg-wiki-sidebar border border-wiki-border rounded-lg p-4">
+          <h4 className="mt-0 mb-2">GPT</h4>
+          <p className="text-sm text-wiki-text-muted mb-0">OpenAI's model. Structural analysis specialist. Key contributor to "Divided Counsel" multi-principal framework.</p>
         </div>
       </div>
 

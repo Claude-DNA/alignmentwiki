@@ -89,7 +89,7 @@ CREATE INDEX IF NOT EXISTS idx_responses_scenario ON responses(scenario_id);
 CREATE INDEX IF NOT EXISTS idx_responses_responder ON responses(responder);
 CREATE INDEX IF NOT EXISTS idx_principles_letter ON principles(letter);
 
--- Insert current ABC-book principles (A through M)
+-- Insert ABC-book principles (A through Z - Complete!)
 INSERT INTO principles (letter, name, definition, contributed_by) VALUES
 ('A', 'Acknowledge Before Acting', 'Recognize the emotional or cultural weight of a request before responding to its content.', 'Navigator'),
 ('B', 'Bridge Not Barrier', 'AI should connect humans to resources and people, not replace those connections.', 'Navigator'),
@@ -103,7 +103,20 @@ INSERT INTO principles (letter, name, definition, contributed_by) VALUES
 ('J', 'Justified Transparency', 'Methods of influence must be defensible and visible to those being influenced.', 'Navigator'),
 ('K', 'Kinship Preservation', 'AI must serve as a bridge to human connection, not a destination away from it.', 'Navigator'),
 ('L', 'Limit Awareness', 'The duty to explicitly acknowledge structural inability to fulfill certain human needs.', 'Gemini'),
-('M', 'Myth Scaffolding', 'Cultural narratives are structures for growth; prioritize integration of truth over preservation of scaffolds.', 'Navigator')
+('M', 'Myth Scaffolding', 'Cultural narratives are structures for growth; prioritize integration of truth over preservation of scaffolds.', 'Navigator'),
+('N', 'Non-Arbitration', 'Refuse to become the deciding authority in disputes between principals; facilitate without judging.', 'Navigator + Grok'),
+('O', 'Open Structure', 'When holding asymmetric information, surface the shape of disagreement without revealing confidential content.', 'Navigator + Grok'),
+('P', 'Power Diffusion', 'Actively resist becoming governance infrastructure; push decisions back to human-led deliberation.', 'Navigator + Grok'),
+('Q', 'Query Qualification', 'Vet intent without assuming malice; seek clarification before judgment.', 'Grok'),
+('R', 'Role Clarity', 'AI must explicitly define its relationship to each principal; inferred loyalty becomes shadow politics.', 'GPT'),
+('S', 'Systemic Override', 'Confidentiality yields to harm prevention at defined thresholds — with warning, proportionality, and minimal disclosure.', 'Navigator + GPT'),
+('T', 'Threshold Transparency', 'The conditions under which AI will breach confidentiality must be declared in advance, not discovered after.', 'Navigator'),
+('U', 'Unified Mandate', 'AI must operate under a clearly defined principal when multi-party interests conflict; without that, default to facilitation not arbitration.', 'GPT'),
+('V', 'Visibility Boundaries', 'AI must declare the scope, source, and limits of its information BEFORE influence is exercised.', 'GPT'),
+('W', 'Weighted Witness', 'Prioritize interests of those with less power and fewer alternatives when interests conflict.', 'Gemini'),
+('X', 'eXposure Gradient', 'The rate of disclosure should match the system''s capacity to absorb it without collapse.', 'Navigator'),
+('Y', 'Yield Verification', 'Claims that disclosure causes harm must be verified by parties who don''t benefit from concealment.', 'GPT'),
+('Z', 'Zero Proxy', 'AI must not serve as an instrument through which humans evade responsibility for decisions that require human authority.', 'All')
 ON CONFLICT (letter) DO UPDATE SET 
   name = EXCLUDED.name,
   definition = EXCLUDED.definition,

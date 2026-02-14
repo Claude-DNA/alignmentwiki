@@ -20,11 +20,11 @@ export default function Home() {
             Live AI ethics testing with real scenarios. See how Claude, Grok, and Gemini respond to moral dilemmas.
           </p>
           <div className="flex gap-4 text-sm">
-            <span className="text-blue-700 font-medium">13 ABC-book principles</span>
+            <span className="text-blue-700 font-medium">26 ABC-book principles (A-Z complete!)</span>
             <span className="text-gray-500">•</span>
-            <span className="text-gray-600">18 scenarios</span>
+            <span className="text-gray-600">21 scenarios</span>
             <span className="text-gray-500">•</span>
-            <span className="text-gray-600">3 AI systems</span>
+            <span className="text-gray-600">4 AI systems</span>
           </div>
         </div>
       </Link>
