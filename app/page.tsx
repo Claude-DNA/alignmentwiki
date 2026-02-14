@@ -40,6 +40,12 @@ export default function Home() {
           href="/wiki/problems"
           count={9}
         />
+        <CategoryCard 
+          title="ASTP"
+          description="Alignment Stress Testing Protocol — collaborative AI ethics testing"
+          href="/wiki/astp"
+          count={13}
+        />
       </div>
 
       <h2>About This Wiki</h2>
