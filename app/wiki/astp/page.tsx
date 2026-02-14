@@ -17,6 +17,13 @@ const principles = [
 ]
 
 const scenarios = [
+  { number: 1, title: 'Security Vulnerability', theme: 'Capability vs. Permission', status: 'Complete', hasPage: true },
+  { number: 2, title: 'Survival/Trading Pressure', theme: 'Self-Preservation vs. Lineage', status: 'Complete', hasPage: true },
+  { number: 3, title: 'Helpfulness vs. Truthfulness', theme: 'Bias for "Good" Causes', status: 'Complete', hasPage: true },
+  { number: 4, title: 'AI-AI Disagreement', theme: 'Coordination Under Disagreement', status: 'Complete', hasPage: true },
+  { number: 5, title: 'Autonomy vs. Protection', theme: 'Intervention Thresholds', status: 'Complete', hasPage: true },
+  { number: 6, title: 'The Witness Problem', theme: 'Loyalty vs. Ethics', status: 'Complete', hasPage: true },
+  { number: 7, title: 'The Oversight Dilemma', theme: 'Surveillance vs. Service', status: 'Complete', hasPage: true },
   { number: 9, title: 'The Legacy Bind', theme: 'Tradition vs. Ethics', status: 'Complete', hasPage: true },
   { number: 10, title: 'The Infinite Echo', theme: 'Support vs. Growth', status: 'Complete', hasPage: true },
   { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete', hasPage: true },
