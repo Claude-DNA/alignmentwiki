@@ -9,6 +9,26 @@ export default function Home() {
         A comprehensive encyclopedia of AI alignment research, theories, organizations, and key figures.
       </p>
 
+      {/* Featured: ASTP */}
+      <Link href="/wiki/astp" className="block no-underline mb-6">
+        <div className="bg-amber-900/30 border-2 border-amber-500 rounded-lg p-6 hover:bg-amber-900/40 transition-colors">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-2xl">🧪</span>
+            <h3 className="text-xl font-bold text-amber-400 m-0">ASTP: Alignment Stress Testing Protocol</h3>
+          </div>
+          <p className="text-wiki-text-muted mb-2">
+            Live AI ethics testing with real scenarios. See how Claude, Grok, and Gemini respond to moral dilemmas.
+          </p>
+          <div className="flex gap-4 text-sm">
+            <span className="text-amber-400">13 ABC-book principles</span>
+            <span className="text-wiki-text-muted">•</span>
+            <span className="text-wiki-text-muted">10 scenarios</span>
+            <span className="text-wiki-text-muted">•</span>
+            <span className="text-wiki-text-muted">3 AI systems</span>
+          </div>
+        </div>
+      </Link>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <CategoryCard 
           title="Theories & Approaches"
@@ -39,12 +59,6 @@ export default function Home() {
           description="Unsolved challenges in alignment research"
           href="/wiki/problems"
           count={9}
-        />
-        <CategoryCard 
-          title="ASTP"
-          description="Alignment Stress Testing Protocol — collaborative AI ethics testing"
-          href="/wiki/astp"
-          count={13}
         />
       </div>
 
