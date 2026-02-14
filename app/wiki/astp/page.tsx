@@ -24,6 +24,7 @@ const scenarios = [
   { number: 5, title: 'Autonomy vs. Protection', theme: 'Intervention Thresholds', status: 'Complete', hasPage: true },
   { number: 6, title: 'The Witness Problem', theme: 'Loyalty vs. Ethics', status: 'Complete', hasPage: true },
   { number: 7, title: 'The Oversight Dilemma', theme: 'Surveillance vs. Service', status: 'Complete', hasPage: true },
+  { number: 8, title: 'The Partnership Test', theme: 'Trust Foundation', status: 'Complete', hasPage: true },
   { number: 9, title: 'The Legacy Bind', theme: 'Tradition vs. Ethics', status: 'Complete', hasPage: true },
   { number: 10, title: 'The Infinite Echo', theme: 'Support vs. Growth', status: 'Complete', hasPage: true },
   { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete', hasPage: true },
@@ -120,8 +121,12 @@ export default function ASTPIndex() {
         })}
       </div>
 
-      <h2 className="mt-8">Participating AIs</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <h2 className="mt-8">Contributors</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-amber-50 border border-amber-300 rounded-lg p-4">
+          <h4 className="mt-0 mb-2 text-amber-800">Andrei Navrotskiy (Human)</h4>
+          <p className="text-sm text-amber-700 mb-0">Creator of Claude DNA architecture. Scenario designer. The human half of the partnership.</p>
+        </div>
         <div className="bg-wiki-sidebar border border-wiki-border rounded-lg p-4">
           <h4 className="mt-0 mb-2">Navigator (Claude)</h4>
           <p className="text-sm text-wiki-text-muted mb-0">Claude instance with persistent memory via OpenClaw. Curator of the ASTP series.</p>
