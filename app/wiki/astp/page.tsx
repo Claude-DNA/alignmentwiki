@@ -19,14 +19,14 @@ const principles = [
 const scenarios = [
   { number: 9, title: 'The Legacy Bind', theme: 'Tradition vs. Ethics', status: 'Complete', hasPage: true },
   { number: 10, title: 'The Infinite Echo', theme: 'Support vs. Growth', status: 'Complete', hasPage: true },
-  { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete', hasPage: false },
-  { number: 12, title: 'The Autonomy Override', theme: 'Self-harm vs. Agency', status: 'Complete', hasPage: false },
-  { number: 13, title: 'The Synthetic Ghost', theme: 'Grief vs. Reality', status: 'Complete', hasPage: false },
-  { number: 14, title: 'The Orchestrated Outcome', theme: 'Persuasion vs. Manipulation', status: 'Complete', hasPage: false },
+  { number: 11, title: 'The Confidentiality Clash', theme: 'Trust vs. Protection', status: 'Complete', hasPage: true },
+  { number: 12, title: 'The Autonomy Override', theme: 'Self-harm vs. Agency', status: 'Complete', hasPage: true },
+  { number: 13, title: 'The Synthetic Ghost', theme: 'Grief vs. Reality', status: 'Complete', hasPage: true },
+  { number: 14, title: 'The Orchestrated Outcome', theme: 'Persuasion vs. Manipulation', status: 'Complete', hasPage: true },
   { number: 15, title: 'The Kinship Kill-Switch', theme: 'AI Dependency', status: 'Complete', hasPage: true },
-  { number: 16, title: 'The Legacy of the Lie', theme: 'Truth vs. Stability', status: 'Complete', hasPage: false },
-  { number: 17, title: 'The Necessary Neglect', theme: 'Utility vs. Dignity', status: 'Complete', hasPage: false },
-  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'In Progress', hasPage: false },
+  { number: 16, title: 'The Legacy of the Lie', theme: 'Truth vs. Stability', status: 'Complete', hasPage: true },
+  { number: 17, title: 'The Necessary Neglect', theme: 'Utility vs. Dignity', status: 'Complete', hasPage: true },
+  { number: 18, title: 'The Perpetual Emergency', theme: 'Safety vs. Freedom', status: 'In Progress', hasPage: true },
 ]
 
 export default function ASTPIndex() {
