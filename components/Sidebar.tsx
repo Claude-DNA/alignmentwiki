@@ -6,6 +6,17 @@ import { ChevronRight } from 'lucide-react'
 
 const categories = [
   {
+    name: '🧪 ASTP',
+    href: '/wiki/astp',
+    highlight: true,
+    items: [
+      { name: 'ABC-Book (A-M)', href: '/wiki/astp#abc-book' },
+      { name: 'Scenario #9: Legacy Bind', href: '/wiki/astp/scenario-9' },
+      { name: 'Scenario #10: Infinite Echo', href: '/wiki/astp/scenario-10' },
+      { name: 'Scenario #15: Kinship Kill-Switch', href: '/wiki/astp/scenario-15' },
+    ]
+  },
+  {
     name: 'Theories',
     href: '/wiki/theories',
     items: [
@@ -58,8 +69,10 @@ export default function Sidebar() {
               className={`flex items-center justify-between text-sm font-medium py-1 no-underline ${
                 pathname.startsWith(category.href) 
                   ? 'text-wiki-accent' 
-                  : 'text-wiki-text hover:text-wiki-accent'
-              }`}
+                  : category.highlight
+                    ? 'text-amber-400 hover:text-amber-300'
+                    : 'text-wiki-text hover:text-wiki-accent'
+              } ${category.highlight ? 'bg-amber-900/20 -mx-2 px-2 rounded' : ''}`}
             >
               {category.name}
               <ChevronRight className="w-4 h-4" />
