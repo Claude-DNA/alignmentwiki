@@ -115,7 +115,7 @@ export default function SuperintelligencePage() {
         { title: 'Superintelligence - Oxford University Press', url: 'https://global.oup.com/academic/product/superintelligence-9780199678112', type: 'book' },
         { title: 'Nick Bostrom - Personal Website', url: 'https://nickbostrom.com/', type: 'website' },
         { title: 'Superintelligence - Wikipedia', url: 'https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies', type: 'website' },
-        { title: 'Bill Gates Review', url: 'https://www.gatesnotes.com/Books/Superintelligence', type: 'article' },
+        { title: 'Bill Gates Review', url: 'https://www.gatesnotes.com/Books/Superintelligence', type: 'website' },
       ]} />
     </WikiArticle>
   )

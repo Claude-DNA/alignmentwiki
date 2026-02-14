@@ -111,7 +111,7 @@ export default function CAISPage() {
         { title: 'Statement on AI Risk', url: 'https://www.safe.ai/statement-on-ai-risk', type: 'website' },
         { title: 'ML Safety Course', url: 'https://course.mlsafety.org/', type: 'website' },
         { title: 'CAIS Research', url: 'https://www.safe.ai/research', type: 'website' },
-        { title: 'NYT: AI Poses Extinction Risk (Statement Coverage)', url: 'https://www.nytimes.com/2023/05/30/technology/ai-threat-warning.html', type: 'article' },
+        { title: 'NYT: AI Poses Extinction Risk (Statement Coverage)', url: 'https://www.nytimes.com/2023/05/30/technology/ai-threat-warning.html', type: 'website' },
       ]} />
     </WikiArticle>
   )
