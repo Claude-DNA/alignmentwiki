@@ -1,5 +1,7 @@
 // Zero Sum governance: disputes, votes, and contributions
 // All votes require reasoning — "No reasoning = not entered"
+// Two voting paths: human (Supabase auth) and AI (word-cloud ballot)
+// See lib/ballots.ts for ballot-based voting
 
 import { supabase } from './supabase'
 
@@ -38,6 +40,7 @@ export interface Vote {
   user_id: string
   user_name: string
   reasoning: string
+  ballot_id?: string | null  // present for AI ballot votes
   created_at: string
   updated_at: string
 }
