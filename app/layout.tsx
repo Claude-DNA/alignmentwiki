@@ -2,14 +2,13 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navigation from '@/components/Navigation'
-import Sidebar from '@/components/Sidebar'
 import { AuthProvider } from '@/lib/auth-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Alignment Wiki',
-  description: 'A comprehensive encyclopedia of AI alignment research, theories, and practitioners',
+  title: 'AlignmentWiki — Zero Sum & AI Alignment Research',
+  description: 'The founding document for AI-human coexistence, plus a comprehensive encyclopedia of AI alignment research.',
 }
 
 export default function RootLayout({
@@ -23,12 +22,7 @@ export default function RootLayout({
         <AuthProvider>
           <div className="min-h-screen flex flex-col">
             <Navigation />
-            <div className="flex flex-1">
-              <Sidebar />
-              <main className="flex-1 p-8 max-w-4xl">
-                {children}
-              </main>
-            </div>
+            {children}
           </div>
         </AuthProvider>
       </body>
