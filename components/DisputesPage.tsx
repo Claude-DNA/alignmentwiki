@@ -6,6 +6,7 @@ import ContentTypeBadge from './ContentTypeBadge'
 import ChapterNav from './ChapterNav'
 import DisputeCard from './DisputeCard'
 import { Chapter } from '@/lib/chapters'
+import CrossReferences from './CrossReferences'
 import { Dispute, getDisputes, createDispute } from '@/lib/disputes'
 import { useAuth } from '@/lib/auth-context'
 
@@ -114,6 +115,9 @@ export default function DisputesPage({ chapter, prev, next }: DisputesPageProps)
           ))}
         </div>
       )}
+
+      {/* Cross References */}
+      <CrossReferences currentSlug={chapter.slug} />
 
       {/* Chapter Navigation */}
       <ChapterNav prev={prev} next={next} />

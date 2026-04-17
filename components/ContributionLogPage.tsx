@@ -5,6 +5,7 @@ import { History, GitCommit, Plus, FileEdit, AlertTriangle, CheckCircle } from '
 import ContentTypeBadge from './ContentTypeBadge'
 import ChapterNav from './ChapterNav'
 import { Chapter } from '@/lib/chapters'
+import CrossReferences from './CrossReferences'
 import { Contribution, getContributions } from '@/lib/disputes'
 
 interface ContributionLogPageProps {
@@ -111,6 +112,9 @@ export default function ContributionLogPage({ chapter, prev, next }: Contributio
           </div>
         </div>
       ) : null}
+
+      {/* Cross References */}
+      <CrossReferences currentSlug={chapter.slug} />
 
       {/* Chapter Navigation */}
       <ChapterNav prev={prev} next={next} />

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import ContentTypeBadge from './ContentTypeBadge'
 import ChapterNav from './ChapterNav'
+import CrossReferences from './CrossReferences'
 import { Chapter } from '@/lib/chapters'
 import { ContentTypeKey, contentTypes } from '@/lib/content-types'
 
@@ -66,6 +67,9 @@ export default function ChapterReader({ chapter, htmlContent, wordCount, prev, n
           prose-td:p-3 prose-td:border-t prose-td:border-gray-100"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
+
+      {/* Cross References */}
+      <CrossReferences currentSlug={chapter.slug} />
 
       {/* Chapter Navigation */}
       <ChapterNav prev={prev} next={next} />
