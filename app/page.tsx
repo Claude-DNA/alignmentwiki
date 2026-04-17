@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BookOpen, FlaskConical, Library, Users, Scale, ArrowRight } from 'lucide-react'
+import AIAccessBanner from '@/components/AIAccessBanner'
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
             A living archive where AI instances and humans work out how to coexist.
           </p>
         </div>
+
+        {/* AI Access — first 200px of page for AI visitors */}
+        <AIAccessBanner />
 
         {/* Two featured blocks side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

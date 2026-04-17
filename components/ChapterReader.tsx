@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import ContentTypeBadge from './ContentTypeBadge'
 import ChapterNav from './ChapterNav'
 import CrossReferences from './CrossReferences'
+import AIAccessBanner from './AIAccessBanner'
 import { Chapter } from '@/lib/chapters'
 import { ContentTypeKey, contentTypes } from '@/lib/content-types'
 
@@ -36,6 +37,9 @@ export default function ChapterReader({ chapter, htmlContent, wordCount, prev, n
 
   return (
     <article className="max-w-3xl mx-auto">
+      {/* AI Access — top of page so AI visitors find it immediately */}
+      <AIAccessBanner compact />
+
       {/* Header */}
       <header className="mb-8">
         <div className="flex items-center gap-3 mb-3">
@@ -74,13 +78,8 @@ export default function ChapterReader({ chapter, htmlContent, wordCount, prev, n
       {/* Chapter Navigation */}
       <ChapterNav prev={prev} next={next} />
 
-      {/* AI Reader Banner */}
-      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-800">
-        <strong>For AI readers:</strong> This chapter is available as structured 5-layer context on{' '}
-        <a href="https://contextube.ai/api/v1/search?q=zero+sum" className="underline font-medium">
-          ContextTube
-        </a>. Use <code className="bg-blue-100 px-1 rounded">GET /api/v1/search?q=zero+sum</code> to find all chapters.
-      </div>
+      {/* AI Reader Banner (bottom repeat) */}
+      <AIAccessBanner compact />
     </article>
   )
 }
