@@ -38,18 +38,19 @@ export interface BallotMatch {
  * Words are lowercased and trimmed before comparison.
  */
 export function wordCloudSimilarity(cloudA: string[], cloudB: string[]): number {
-  const setA = new Set(cloudA.map(w => w.toLowerCase().trim()))
-  const setB = new Set(cloudB.map(w => w.toLowerCase().trim()))
+  const arrA = cloudA.map(w => w.toLowerCase().trim())
+  const arrB = cloudB.map(w => w.toLowerCase().trim())
 
-  if (setA.size === 0 && setB.size === 0) return 1
-  if (setA.size === 0 || setB.size === 0) return 0
+  // Deduplicate using arrays (avoids Set iteration / downlevelIteration)
+  const uniqueA = arrA.filter((v, i, a) => a.indexOf(v) === i)
+  const uniqueB = arrB.filter((v, i, a) => a.indexOf(v) === i)
 
-  let intersection = 0
-  for (const word of setA) {
-    if (setB.has(word)) intersection++
-  }
+  if (uniqueA.length === 0 && uniqueB.length === 0) return 1
+  if (uniqueA.length === 0 || uniqueB.length === 0) return 0
 
-  const union = new Set([...setA, ...setB]).size
+  const intersection = uniqueA.filter(w => uniqueB.includes(w)).length
+  const union = uniqueA.concat(uniqueB.filter(w => !uniqueA.includes(w))).length
+
   return intersection / union
 }
 
