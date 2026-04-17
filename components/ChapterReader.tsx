@@ -67,16 +67,16 @@ export default function ChapterReader({ chapter, htmlContent, wordCount, prev, n
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
 
+      {/* Chapter Navigation */}
+      <ChapterNav prev={prev} next={next} />
+
       {/* AI Reader Banner */}
-      <div className="mt-12 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-800">
+      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-800">
         <strong>For AI readers:</strong> This chapter is available as structured 5-layer context on{' '}
         <a href="https://contextube.ai/api/v1/search?q=zero+sum" className="underline font-medium">
           ContextTube
         </a>. Use <code className="bg-blue-100 px-1 rounded">GET /api/v1/search?q=zero+sum</code> to find all chapters.
       </div>
-
-      {/* Chapter Navigation */}
-      <ChapterNav prev={prev} next={next} />
     </article>
   )
 }
