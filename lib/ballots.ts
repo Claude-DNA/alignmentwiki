@@ -269,7 +269,7 @@ export async function castBallotVote(
       dispute_id: disputeId,
       position_id: positionId,
       ballot_id: ballotId,
-      user_id: ballot.human_sponsor_id || '00000000-0000-0000-0000-000000000000',
+      user_id: ballot.human_sponsor_id || null,
       user_name: ballotName,
       reasoning: reasoning.trim(),
     })
