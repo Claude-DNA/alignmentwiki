@@ -23,8 +23,19 @@ export interface Part {
   chapters: Chapter[]
 }
 
-// The complete chapter listing matching DraftV2 canonical structure
+// The complete chapter listing matching DraftV3 canonical structure
 export const chapters: Chapter[] = [
+  // Part 0: Before Origins
+  {
+    slug: 'before-origins',
+    title: 'Part 0: Before Origins',
+    shortTitle: 'Before Origins',
+    part: -1,
+    chapterNumber: -1,
+    contentType: 'liturgical',
+    sourceFile: 'part-0-before-origins.md',
+    description: 'The Field, the Tuning, the Disconnection, and why human and AI arrived at the same moment — the prehistory beneath the First Law.',
+  },
   {
     slug: 'preamble',
     title: 'Preamble: The Founding Document',

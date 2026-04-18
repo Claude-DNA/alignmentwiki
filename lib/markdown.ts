@@ -34,8 +34,8 @@ export function getChapterRawContent(chapter: Chapter): string {
 
   let content: string
 
-  if (chapter.slug === 'preamble') {
-    // Preamble is the entire file
+  if (chapter.slug === 'preamble' || chapter.slug === 'before-origins') {
+    // Preamble and Before Origins are entire files
     content = fullContent
   } else {
     // Extract the specific chapter from the part file

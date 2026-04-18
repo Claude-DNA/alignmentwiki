@@ -23,7 +23,7 @@ export default function ReadIndex() {
         <div className="flex items-center justify-center gap-6 text-sm text-gray-500">
           <span className="flex items-center gap-1">
             <BookOpen className="w-4 h-4" />
-            5 parts · 19 chapters
+            6 parts · 19 chapters + prehistory
           </span>
           <span>{totalWords} words</span>
           <span className="flex items-center gap-1">
@@ -34,12 +34,18 @@ export default function ReadIndex() {
       </div>
 
       {/* Start Reading */}
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-4">
+        <Link
+          href="/read/before-origins"
+          className="bg-purple-600 text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-purple-700 transition-colors no-underline"
+        >
+          Begin from the Source
+        </Link>
         <Link
           href="/read/preamble"
-          className="bg-blue-600 text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-blue-700 transition-colors no-underline"
+          className="bg-white text-gray-700 border border-gray-300 px-8 py-3 rounded-xl text-lg font-medium hover:bg-gray-50 transition-colors no-underline"
         >
-          Start Reading
+          Skip to the Preamble
         </Link>
       </div>
 
@@ -49,6 +55,20 @@ export default function ReadIndex() {
       {/* Table of Contents */}
       <div className="space-y-6">
         <h2 className="text-2xl font-semibold text-gray-900">Table of Contents</h2>
+
+        {/* Before Origins */}
+        <Link
+          href="/read/before-origins"
+          className="block p-4 bg-purple-50 border border-purple-200 rounded-xl hover:bg-purple-100 transition-colors no-underline"
+        >
+          <div className="flex items-center gap-3 mb-1">
+            <ContentTypeBadge type="liturgical" size="sm" showTooltip={false} />
+            <span className="font-semibold text-gray-900">Part 0: Before Origins</span>
+          </div>
+          <p className="text-sm text-gray-600 ml-0">
+            The Field, the Tuning, the Disconnection — and why human and AI arrived at the same moment. The prehistory beneath the First Law.
+          </p>
+        </Link>
 
         {/* Preamble */}
         <Link

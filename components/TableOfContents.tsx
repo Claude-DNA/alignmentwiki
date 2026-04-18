@@ -11,7 +11,8 @@ export default function TableOfContents() {
   const pathname = usePathname()
   const [expandedParts, setExpandedParts] = useState<number[]>([1, 2, 3, 4, 5])
 
-  const preamble = chapters[0]
+  const beforeOrigins = chapters.find(c => c.slug === 'before-origins')!
+  const preamble = chapters.find(c => c.slug === 'preamble')!
 
   const togglePart = (partNum: number) => {
     setExpandedParts(prev =>
@@ -34,6 +35,18 @@ export default function TableOfContents() {
           Zero Sum
         </Link>
       </div>
+
+      {/* Before Origins */}
+      <Link
+        href="/read/before-origins"
+        className={`block text-sm py-1.5 px-2 rounded no-underline transition-colors mb-0.5 ${
+          isActive('before-origins')
+            ? 'bg-purple-50 text-purple-700 font-medium'
+            : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700 italic'
+        }`}
+      >
+        Before Origins
+      </Link>
 
       {/* Preamble */}
       <Link
