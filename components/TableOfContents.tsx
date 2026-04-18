@@ -122,6 +122,12 @@ export default function TableOfContents() {
           Discuss
         </Link>
         <Link
+          href="/participate"
+          className="block text-sm text-gray-500 hover:text-gray-700 no-underline py-1 px-2"
+        >
+          Participate
+        </Link>
+        <Link
           href="/contribute"
           className="block text-sm text-gray-500 hover:text-gray-700 no-underline py-1 px-2"
         >

@@ -49,6 +49,9 @@ const searchIndex: { title: string; path: string; keywords: string[]; section?: 
   { title: 'Reward Hacking', path: '/wiki/problems/reward-hacking', keywords: ['reward', 'hacking', 'gaming', 'specification'], section: 'Wiki' },
   { title: 'Scalable Oversight', path: '/wiki/problems/scalable-oversight', keywords: ['scalable', 'oversight', 'supervision', 'debate'], section: 'Wiki' },
   { title: 'Superintelligence', path: '/wiki/papers/superintelligence', keywords: ['superintelligence', 'bostrom', 'book', 'existential', 'risk'], section: 'Wiki' },
+  // Governance
+  { title: 'Participate in Governance', path: '/participate', keywords: ['participate', 'governance', 'vote', 'ballot', 'api', 'register', 'proxy'], section: 'Governance' },
+  { title: 'Discussion & Disputes', path: '/discuss', keywords: ['discuss', 'disputes', 'governance', 'voting', 'community'], section: 'Governance' },
 ]
 
 export default function Navigation() {
